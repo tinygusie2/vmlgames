@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Google</title>
+  <link rel="icon" type="image/png" href="/google.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body class="baloo-2-custom">
+  <header>
+    <div class="logo">VMLgames</div>
+    <nav>
+      <a href="/">Home</a>
+      <a href="/library">Spellen</a>
+      <a href="/suggestions">Suggesties</a>
+      <a href="/admin">Admin</a>
+  </nav>
+  </header>
+
+  <section class="admin-dashboard">
+    <h1>beheerders Dashboard</h1>
+    
+    <div class="add-game">
+      <h2>Add New Game</h2>
+      <form id="add-game-form">
+        <label for="title">Game Title:</label>
+        <input type="text" id="title" required>
+        <label for="description">Description:</label>
+        <textarea id="description" required></textarea>
+        <label for="image">Image URL (Optional):</label>
+        <input type="url" id="image">
+        <label for="gameUrl">Game URL:</label>
+        <input type="url" id="gameUrl" required placeholder="Link to play the game">
+        <label for="gameText">Popup Informatie (Optioneel):</label>
+        <textarea id="gameText" placeholder="Voeg hier optionele popup informatie toe"></textarea>
+        <button type="submit">Add Game</button>
+      </form>
+    </div>
+
+    <div class="manage-games">
+      <h2>Manage Games</h2>
+      <div id="games-list"></div>
+    </div>
+
+    <div id="edit-form-container" class="edit-form" style="display: none;">
+      <h2>Edit Game</h2>
+      <form id="edit-game-form">
+        <label for="edit-title">Game Title:</label>
+        <input type="text" id="edit-title" required>
+        <label for="edit-description">Description:</label>
+        <textarea id="edit-description" required></textarea>
+        <label for="edit-image">Image URL (Optional):</label>
+        <input type="url" id="edit-image">
+        <label for="edit-gameUrl">Game URL:</label>
+        <input type="url" id="edit-gameUrl" required>
+        <label for="edit-gameText">Popup Informatie (Optioneel):</label>
+        <textarea id="edit-gameText" placeholder="Voeg hier optionele popup informatie toe"></textarea>
+        <button type="submit">Save Changes</button>
+        <button type="button" id="cancel-edit">Cancel</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 VMLgames. All rights reserved.</p>
+  </footer>
+
+  <script src="/script.js"></script>
+</body>
+</html>

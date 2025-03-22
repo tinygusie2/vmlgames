@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Suggestions</title>
+    <link rel="icon" type="image/png" href="/google.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <style>
+        input[type="text"] {
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-family: 'Baloo 2', cursive;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: 'Baloo 2', cursive;
+        }
+
+        .suggestion-item {
+            padding: 10px;
+            border-bottom: 1px solid #eee;
+            margin: 5px;
+        }
+
+        #suggestion-input-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 20px;
+        }
+
+        #suggestions-section {
+            max-height: 50vh; /* Limit the suggestions section height */
+            overflow-y: auto; /* Enable vertical scrolling */
+        }
+
+    </style>
+</head>
+<body class="baloo-2-custom">
+    <header>
+        <div class="logo">VMLgames</div>
+        <nav>
+            <a href="/">Home</a>
+            <a href="/library">Spellen</a>
+            <a href="/suggestions">Suggesties</a>
+            <a href="/admin">Admin</a>
+        </nav>
+    </header>
+
+    <section id="suggestion-input-section">
+        <h1>Game Suggesties</h1>
+        <p>Deel je favoriete game suggesties met de community</p>
+
+        <input type="text" id="name" placeholder="Jouw Naam">
+        <input type="text" id="suggestion" placeholder="Game Suggestie">
+        <button onclick="addSuggestion()">Submit Suggestie</button>
+    </section>
+
+    <section class="game-carousel" id="suggestions-section">
+        <h2>Huidige Suggesties</h2>
+        <div class="carousel-container" id="suggestions">
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 VMLgames. Alle rechten voorbehouden.</p>
+    </footer>
+
+    <script>
+        const blockedWords = [
+         "nigger",
+         "neger",
+         "@ss",
+         "n.i.g.g.e.r",
+         "n1gg3r",
+         "fehling",
+         "niggers",
+         "Niggers",
+         "kanker",
+         "kkr",
+         "tiefus",
+         "tering",
+         "jemoeder",
+         "yomama",
+         "kut",
+         "stom",
+        ]; 
+
+        function filterText(text) {
+            blockedWords.forEach(word => {
+                const regex = new RegExp(`\\b${word}\\b`, 'gi'); // 'gi' for global and case-insensitive
+                text = text.replace(regex, '****');
+            });
+            return text;
+        }
+
+        async function fetchSuggestions() {
+            const response = await fetch('/api/suggestions');
+            const suggestions = await response.json();
+            const suggestionsDiv = document.getElementById('suggestions');
+            suggestionsDiv.innerHTML = '';
+            suggestions.forEach(suggestion => {
+                const filteredSuggestion = filterText(suggestion.suggestion);
+                suggestionsDiv.innerHTML += `<div class="suggestion-item"><p><strong>${suggestion.name}:</strong> ${filteredSuggestion}</p></div>`;
+            });
+        }
+
+        async function addSuggestion() {
+            const name = document.getElementById('name').value;
+            const suggestion = document.getElementById('suggestion').value;
+            const filteredSuggestion = filterText(suggestion);
+
+            if (name && filteredSuggestion) {
+                const response = await fetch('/api/suggestions', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, suggestion: filteredSuggestion }),
+                });
+
+                if (response.ok) {
+                    fetchSuggestions();
+                    document.getElementById('name').value = '';
+                    document.getElementById('suggestion').value = '';
+                } else {
+                    alert('Failed to add suggestion.');
+                }
+            } else {
+                alert('Please enter both name and suggestion.');
+            }
+        }
+
+        fetchSuggestions();
+    </script>
+</body>
+</html>
