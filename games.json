@@ -1,10 +1,11 @@
-[
+[ 
+
   {
-    "title": "Snake",
-    "description": "Een snake spel met versnellingen en een vleugje nostalgie",
-    "image": "https://opengameart.org/sites/default/files/snake%20idle.gif",
-    "gameUrl": "https://tinygusie2.github.io/snake-game/",
-    "gameText": "Welkom bij Snake. Bestuur de slang met de pijltjestoetsen en verzamel zoveel mogelijk voedsel."
+    "title": "Buildnow.gg",
+    "description": "Dit is een test",
+    "image": "https://play-lh.googleusercontent.com/MdtXwEOt43tY6GV3-IHAwhdmoW-jY4B1rqvA0m1Yj89Bj4et8FfWGL3cCt_lkDvWbWk,   
+    "gameUrl": "https://geography-lessons.github.io/Vafor_IT/a3f5d9e7c2b8a4e1f3d5c7e9b0a4f6c8/",
+    "gameText": "laat ff achter in de suggesties of ie werkt."
   },
   {
     "title": "OVO",
@@ -136,7 +137,7 @@
     "title": "Getting over it scratch",
     "description": "de getting over it game in scratch nagebouwd.",
     "image": "https://student-management-76.github.io/images/lesson-89.webp",
-    "gameUrl": "https://geography-20.github.io/repo1/lesson-89/",
+    "gameUrl": "https://scratch.mit.edu/projects/389464290/embed",
     "gameText": ""
   },
   {
@@ -154,17 +155,24 @@
     "gameText": "Probeer niet nat te worden!"
   },
   {
-    "title": "OVO Dimensions",
-    "description": "De 3D versie van OVO",
-    "image": "https://cdn-1.webcatalog.io/catalog/poki-ovo-dimensions/poki-ovo-dimensions-icon-filled-256.webp?v=1714778225750",
-    "gameUrl": "https://geography-20.github.io/repo3/lesson-499/",
-    "gameText": ""
-  },
-  {
     "title": "Money Movers",
     "description": "2 Speler spel.",
     "image": "https://geography-20.github.io/repo3/lesson-461/assets/icon.jpeg",
     "gameUrl": "https://geography-20.github.io/repo3/lesson-461/",
+    "gameText": ""
+  },
+  {
+    "title": "Flappy bird",
+    "description": "namaak flappy bird",
+    "image": "https://upload.wikimedia.org/wikipedia/en/0/0a/Flappy_Bird_icon.png",
+    "gameUrl": "https://geography-20.github.io/repo1/lesson-80/",
+    "gameText": ""
+  },
+  {
+    "title": "Vex 4",
+    "description": "De originele vex 4",
+    "image": "https://student-management-76.github.io/images/lesson-339.webp",
+    "gameUrl": "https://geography-20.github.io/repo2/lesson-339/",
     "gameText": ""
   }
 ]
